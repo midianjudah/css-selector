@@ -77,3 +77,58 @@ Dark Green - #1f2d2e
 Light Green - #234534
 Orange - #ED6B55
  */
+
+/* This is how to change a checkbox to a toggle switch */
+
+ .toggleLabel {
+     line-height: 40px;
+     padding-right: 100px;
+     margin: 15px 0;
+    position: relative;
+ }
+
+ 
+.toggleLabel::before {
+    content: "";
+    width: 80px;
+    height: 40px;
+    background-color: #1f2d2e;
+    display: block;
+    position: absolute;
+    right: 0;/* This is how to position the block all the way to the right */
+    border-radius: 100px; /* This is how to turn the box from square to a circular/oval */
+}
+
+/* This is how to create the white circular toggle switch to let the user know they made a chage */
+.toggleLabel::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%; /* Turning a square into a circle */
+    display: block;
+    position: absolute;
+    right: 45px;
+    top: 5px;
+
+}
+
+
+/* This is how to get rid of the checkbox */
+ input[type="checkbox"] {
+ position: absolute;
+opacity: 0;
+}
+
+/* This is how to get the toggle in the checkbox to work, MOTHERFUCKER */
+input[type="checkbox"]:checked + .toggleLabel::after {
+    right: 5px;
+
+}
+
+/* this is how to change the color of the toggle shwn activated */
+input[type="checkbox"]:active + .toggleLabel::before,
+input[type="checkbox"]:focus + .toggleLabel::before {
+    background-color: #ED6B55;
+    
+}
